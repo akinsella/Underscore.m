@@ -206,6 +206,21 @@
     };
 }
 
+
+- (USArrayWrapper *)unique;
+{
+    __block NSArray *(^unique)(NSArray *) = ^NSArray *(NSArray *input) {
+
+        NSSet* uniqueSet = [NSSet setWithArray:input];
+        NSArray* result = [uniqueSet allObjects];
+
+        return result;
+    };
+
+    return [USArrayWrapper wrap:unique(self.array)];
+}
+
+
 - (id (^)(UnderscoreTestBlock))find;
 {
     return ^id (UnderscoreTestBlock test) {
