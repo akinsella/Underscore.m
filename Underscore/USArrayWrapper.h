@@ -65,6 +65,6 @@
 @property (readonly) BOOL (^all)(UnderscoreTestBlock block);
 @property (readonly) BOOL (^any)(UnderscoreTestBlock block);
 
-@property (readonly) USArrayWrapper *unique;
+@property (readonly) USArrayWrapper *uniq;
 
 @end

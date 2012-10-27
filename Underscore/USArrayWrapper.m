@@ -207,17 +207,12 @@
 }
 
 
-- (USArrayWrapper *)unique;
+- (USArrayWrapper *)uniq;
 {
-    __block NSArray *(^unique)(NSArray *) = ^NSArray *(NSArray *input) {
+    NSSet* uniqSet = [NSSet setWithArray:self.array];
+    NSArray* result = [uniqSet allObjects];
 
-        NSSet* uniqueSet = [NSSet setWithArray:input];
-        NSArray* result = [uniqueSet allObjects];
-
-        return result;
-    };
-
-    return [USArrayWrapper wrap:unique(self.array)];
+    return [USArrayWrapper wrap:result];
 }
 
 

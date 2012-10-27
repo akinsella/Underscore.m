@@ -238,19 +238,23 @@ static NSArray *threeObjects;
                          @"Can extract values for the key path");
 }
 
-- (void)testUnique;
+- (void)testUniq;
 {
-    STAssertEqualObjects(_array(emptyArray).unique.unwrap,
-    emptyArray,
-    @"Can handle empty arrays");
+    STAssertEqualObjects(_array(emptyArray).uniq.unwrap,
+                         emptyArray,
+                         @"Can handle empty arrays");
 
     NSArray *samesObjects = [NSArray arrayWithObjects:[NSNumber numberWithInt:3],
                                                  [NSNumber numberWithInt:3],
                                                  [NSNumber numberWithInt:3],
                                                  nil];
 
-    STAssertEquals(_array(threeObjects).unique.unwrap.count, (NSUInteger)3, @"Can extract 3 unique values");
-    STAssertEquals(_array(samesObjects).unique.unwrap.count, (NSUInteger)1, @"Can extract 1 unique value");
+    STAssertEquals(_array(threeObjects).uniq.unwrap.count,
+                   (NSUInteger)3,
+                   @"Can extract 3 unique values");
+    STAssertEquals(_array(samesObjects).uniq.unwrap.count,
+                   (NSUInteger)1,
+                   @"Can extract 1 unique value");
 }
 
 - (void)testFind;
